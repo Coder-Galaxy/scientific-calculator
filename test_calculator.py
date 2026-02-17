@@ -1,5 +1,5 @@
 import unittest
-from calculator import (
+from cal import (
     calculate_sqrt,
     calculate_factorial,
     calculate_log,
