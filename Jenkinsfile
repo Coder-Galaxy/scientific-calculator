@@ -44,11 +44,25 @@ pipeline {
                 sh 'docker push $DOCKER_IMAGE:latest'
             }
         }
+
+        stage('Deploy with Ansible') {
+            steps {
+                sh 'ansible-playbook -i inventory deploy.yml'
+            }
+        }
     }
 
     post {
         always {
             sh 'docker logout || true'
+        }
+
+        success {
+            echo 'Pipeline completed successfully 🚀'
+        }
+
+        failure {
+            echo 'Pipeline failed ❌'
         }
     }
 }

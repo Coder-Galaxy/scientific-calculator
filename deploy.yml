@@ -1,0 +1,16 @@
+---
+- name: Deploy Scientific Calculator Container
+  hosts: localhost
+  become: false
+
+  tasks:
+
+    - name: Pull latest Docker image
+      command: docker pull kabubabu/scientific-calculator:latest
+
+    - name: Stop existing container if running
+      command: docker rm -f scientific-calculator
+      ignore_errors: yes
+
+    - name: Run new container
+      command: docker run -d --name scientific-calculator -it kabubabu/scientific-calculator:latest
