@@ -63,7 +63,6 @@ Build SUCCESSFUL!
 Project: Scientific Calculator CI/CD Pipeline
 Job Name: ${env.JOB_NAME}
 Build Number: ${env.BUILD_NUMBER}
-Build URL: ${env.BUILD_URL}
 
 Docker image built and deployed successfully.
 """
@@ -79,7 +78,6 @@ Build FAILED!
 Project: Scientific Calculator CI/CD Pipeline
 Job Name: ${env.JOB_NAME}
 Build Number: ${env.BUILD_NUMBER}
-Build URL: ${env.BUILD_URL}
 
 Please check Jenkins console logs.
 """
