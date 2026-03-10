@@ -1,38 +1,48 @@
-# Scientific Calculator CI/CD Pipeline
+# 🧮 Scientific Calculator CI/CD Pipeline 🚀
 
 ## 📌 Project Overview
 
-This project demonstrates a complete **DevOps CI/CD pipeline** for a Python-based Scientific Calculator application. The pipeline automates the process of building, testing, containerizing, publishing, and deploying the application using modern DevOps tools.
+This project demonstrates a complete **DevOps CI/CD pipeline** for a Python-based **Scientific Calculator** application.
 
-The objective of this project is to showcase how DevOps practices can improve software delivery by automating the entire development lifecycle.
+The pipeline automates the process of:
+
+✅ Building the application
+✅ Running unit tests
+✅ Creating a Docker container
+✅ Pushing the image to Docker Hub
+✅ Deploying the application using Ansible
+✅ Sending build notifications via email
+
+The goal of this project is to show how **DevOps tools automate the software development lifecycle**.
 
 ---
 
-## 🛠 Technologies Used
+## 🛠️ Technologies Used
 
-- **Python** – Application development
-- **Git & GitHub** – Version control and source repository
-- **Jenkins** – CI/CD automation server
-- **Docker** – Containerization of the application
-- **Docker Hub** – Container registry for storing images
-- **Ansible** – Automated deployment
-- **Ngrok** – Exposes local Jenkins server for webhook triggering
+⚙️ **Python** – Application development
+📂 **Git** – Version control
+🌐 **GitHub** – Remote repository
+🤖 **Jenkins** – CI/CD automation server
+🐳 **Docker** – Containerization
+📦 **Docker Hub** – Container registry
+📡 **Ansible** – Automated deployment
+🌍 **Ngrok** – Exposes local Jenkins server for GitHub webhooks
 
 ---
 
 ## 📂 Project Structure
 
-
+```
 scientific-calculator/
-│
-├── cal.py # Scientific calculator application
-├── test_calculator.py # Unit tests for calculator functions
-├── Dockerfile # Docker container configuration
-├── Jenkinsfile # Jenkins CI/CD pipeline definition
-├── deploy.yml # Ansible playbook for deployment
-├── .gitignore # Ignore unnecessary files
-└── README.md # Project documentation
 
+cal.py
+test_calculator.py
+Dockerfile
+Jenkinsfile
+deploy.yml
+README.md
+.gitignore
+```
 
 ---
 
@@ -40,124 +50,177 @@ scientific-calculator/
 
 The scientific calculator supports the following operations:
 
-- Square Root
-- Factorial
-- Natural Logarithm (ln)
-- Power (x^y)
+➕ Power calculation
+√ Square root
+📊 Natural logarithm
+🔢 Factorial
 
-It also includes:
+Additional features:
 
-- Input validation
-- Error handling
-- Logging support
+✔ Input validation
+✔ Error handling
+✔ Logging support
 
 ---
 
-## 🔁 CI/CD Pipeline Workflow
+## 🔄 CI/CD Pipeline Workflow
 
-The pipeline automates the following steps:
+The CI/CD pipeline automates the following process:
 
-1. Developer pushes code to **GitHub**
-2. GitHub triggers **Jenkins pipeline using Webhook**
-3. Jenkins performs the following stages:
+1️⃣ Developer pushes code to **GitHub**
+2️⃣ GitHub triggers **Jenkins pipeline using Webhook**
+3️⃣ Jenkins executes multiple pipeline stages
 
+### Jenkins Pipeline Stages
 
+```
 Install Dependencies
-↓
+⬇
 Run Unit Tests
-↓
+⬇
 Docker Login
-↓
+⬇
 Build Docker Image
-↓
-Push Image to Docker Hub
-↓
-Deploy Container using Ansible
-↓
+⬇
+Push Docker Image to Docker Hub
+⬇
+Deploy using Ansible
+⬇
 Send Email Notification
+```
 
+This automation ensures that **every code change is tested and deployed automatically**.
 
 ---
 
 ## 🐳 Docker Image
 
-Docker Hub Repository:
-
+### 📦 Docker Hub Repository
 
 https://hub.docker.com/r/kabubabu/scientific-calculator
 
+### ⬇ Pull the Image
 
-Pull the image manually:
-
-```bash
+```
 docker pull kabubabu/scientific-calculator:latest
+```
 
-Run the container:
+### ▶ Run the Container
 
+```
 docker run -it kabubabu/scientific-calculator
-🚀 Deployment Using Ansible
+```
 
-Deployment is automated using the Ansible playbook:
+---
 
+## 🚀 Deployment Using Ansible
+
+Deployment is automated using an **Ansible playbook**.
+
+### ▶ Run Deployment
+
+```
 ansible-playbook -i inventory deploy.yml
+```
 
-The playbook performs:
+### 🔧 The playbook performs:
 
-Pull latest Docker image
+1️⃣ Pull latest Docker image
+2️⃣ Stop existing container (if running)
+3️⃣ Run new container with updated image
 
-Stop existing container
+This ensures the **latest version of the application is always deployed automatically**.
 
-Run updated container
+---
 
-📧 Email Notification
+## 📧 Email Notification
 
-Jenkins sends email notifications after pipeline execution:
+Jenkins sends email notifications after pipeline execution.
 
-Build Success
+Notifications include:
 
-Build Failure
+📩 Build Success
+📩 Build Failure
 
-This helps developers monitor pipeline status.
+This helps developers **monitor the pipeline status in real time**.
 
-⚙️ How to Run Locally
-Run the Calculator
+---
+
+## 🖥️ Run Application Locally
+
+### ▶ Run Calculator
+
+```
 python3 cal.py
-Run Unit Tests
-python3 -m unittest test_calculator.py
-Build Docker Image
-docker build -t kabubabu/scientific-calculator .
-Run Docker Container
-docker run -it kabubabu/scientific-calculator
-🔗 Project Links
+```
 
-GitHub Repository:
+### 🧪 Run Unit Tests
+
+```
+python3 -m unittest test_calculator.py
+```
+
+### 🐳 Build Docker Image
+
+```
+docker build -t kabubabu/scientific-calculator .
+```
+
+### ▶ Run Docker Container
+
+```
+docker run -it kabubabu/scientific-calculator
+```
+
+---
+
+## 🔗 Project Links
+
+🌐 **GitHub Repository**
 
 https://github.com/Coder-Galaxy/scientific-calculator
 
-Docker Hub Repository:
+🐳 **Docker Hub Repository**
 
 https://hub.docker.com/r/kabubabu/scientific-calculator
-📊 CI/CD Architecture
-
-Developer
-↓
-GitHub Repository
-↓
-Jenkins Pipeline
-↓
-Docker Image Build
-↓
-Docker Hub Registry
-↓
-Ansible Deployment
-↓
-Running Container
-
-✅ Conclusion
-
-This project successfully demonstrates the implementation of a complete DevOps CI/CD pipeline for a Python application. By integrating GitHub, Jenkins, Docker, Docker Hub, and Ansible, the entire workflow from code commit to deployment is automated.
-
-This approach improves development speed, reliability, and deployment efficiency.
-
 
 ---
+
+## 📊 CI/CD Architecture
+
+```
+Developer
+⬇
+GitHub Repository
+⬇
+Jenkins Pipeline
+⬇
+Build Docker Image
+⬇
+Push to Docker Hub
+⬇
+Deploy using Ansible
+⬇
+Run Docker Container
+```
+
+---
+
+## ✅ Conclusion
+
+This project successfully demonstrates how a **complete CI/CD pipeline** can automate the software delivery process.
+
+By integrating **GitHub, Jenkins, Docker, Docker Hub, and Ansible**, the entire workflow from **code commit to deployment** is automated.
+
+This approach improves:
+
+⚡ Development speed
+🔒 Reliability
+🚀 Deployment efficiency
+
+---
+
+## ⭐ Author
+
+👨‍💻 **Piyush Singh**
+DevOps Mini Project
